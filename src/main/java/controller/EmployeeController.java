@@ -15,12 +15,21 @@ import org.hibernate.cfg.Configuration;
 
 import java.util.List;
 
+/*
+to run as standalone glab here are some inserts
+
+INSERT INTO Employee (name, job, salary, city, addressLine, zipcode, officeCode, startDate)
+VALUES ('John Doe', 'Software Engineer', 80000, 'New York', '123 Main St', '10001', 1, '2024-07-16'),
+       ('Jane Smith', 'Marketing Manager', 75000, 'Los Angeles', '456 Elm St', '90210', 2, '2024-07-15');
+
+
+ */
 public class EmployeeController {
 
     public static void main(String[] args) {
-        //  findEmployeeByName();
+         findEmployeeByName();
         //  findEmployeeById();
-         showOfficeCodesAsDepartment();
+        // showOfficeCodesAsDepartment();
 
     }
 
@@ -30,7 +39,7 @@ public class EmployeeController {
 //------------  Hibernate Named Query   -------------
 
         TypedQuery<Employee>query = session.createNamedQuery("findEmployeeByName", Employee.class);
-        query.setParameter("name","Tom Thele");
+        query.setParameter("name","John Doe");
         List<Employee> employees=query.getResultList();
         System.out.printf("%-10s%-22s%-14s%-14s%-16s%-10s%-10s%s%n", "ID","Name","Salary", "Job","AddressLine","Zipcode","city","startDate");
 
